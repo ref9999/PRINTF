@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_nbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 10:21:26 by riel-fas          #+#    #+#             */
-/*   Updated: 2024/12/07 13:44:02 by riel-fas         ###   ########.fr       */
+/*   Created: 2024/12/07 11:00:21 by riel-fas          #+#    #+#             */
+/*   Updated: 2024/12/07 14:12:55 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
+int	ft_nbr(int nbr)
+{
+	int		x;
 
-int	ft_printf(const char *str, ...);
-int	ft_char(char c);
-int	ft_str(char *str);
-int	ft_hexa(unsigned long nbr, char c);
-int	ft_nbr(int i);
-
-#endif
+	x = 0;
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		x += ft_char('-');
+	}
+	else if (nbr > 9)
+	{
+		x += ft_nbr(nbr / 10);
+		x += ft_char((nbr % 10) + '0');
+	}
+	else
+		x += ft_char(nbr + '0');
+	return (x);
+}

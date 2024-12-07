@@ -6,42 +6,43 @@
 /*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 12:29:11 by riel-fas          #+#    #+#             */
-/*   Updated: 2024/12/07 10:07:12 by riel-fas         ###   ########.fr       */
+/*   Updated: 2024/12/07 14:54:16 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check(char z, const char *str, va_list ptr)
+int	ft_check(char m, va_list p)
 {
-	int x;
+	int	q;
 
-	x = 0;
-	if (str[z] == 'c')
-		x += ft_char(va_arg(p, char));
-	else if (str[z] == 's')
-		x += ft_str(va_arg(p, char *));
-	else if (str[z] == 'p')
-		x += ft_pointer(va_arg(p, unsigned long));
-	else if (str[z] == 'd' || str[z] == 'i')
-		x += ft_nbr(va_arg(p, int));
-	else if (str[z] == 'u')
-		x += ft_base10(va_arg(p, unsigned int));
-	else if (str[z] == 'x')
-		x += ft_hexalow(va_arg(p, unsigned int));
-	else if (str[z] == 'X')
-		x += ft_hexaup(va_arg(p, unsigned int));
-	else if (str[z] == '%')
-		x += ft_char('%');
+	q = 0;
+	if (m == 'c')
+		q += ft_char(va_arg(p, int));
+	else if (m == 's')
+		q += ft_str(va_arg(p, char *));
+	else if (m == 'd' || m == 'i')
+		q += ft_nbr(va_arg(p, int));
+	else if (m == 'u')
+		q += ft_nbr(va_arg(p, unsigned int));
+	else if (m == 'p')
+		q += ft_hexa(va_arg(p, unsigned long), m);
+	else if (m == 'x')
+		q += ft_hexa(va_arg(p, unsigned int), m);
+	else if (m == 'X')
+		q += ft_hexa(va_arg(p, unsigned int),m);
+	else if (m == '%')
+		q += ft_char('%');
 	else
-		x += ft_char()
+		q += ft_char(m);
+	return (q);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list p;
-	int x;
-	int y;
+	va_list	p;
+	int		x;
+	int		y;
 
 	x = 0;
 	y = 0;
@@ -52,10 +53,14 @@ int	ft_printf(const char *str, ...)
 		{
 			if (!str[x + 1])
 				return (y);
-			y += ft_check(x++, str, p)
+			y += ft_check(str[x + 1], p);
+			x++;
 		}
 		else
-			ft_putchar(str[x]);
+		{
+			ft_char(str[x]);
+			y++;
+		}
 		x++;
 	}
 	va_end(p);
