@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 10:21:26 by riel-fas          #+#    #+#             */
-/*   Updated: 2024/12/07 07:58:25 by riel-fas         ###   ########.fr       */
+/*   Created: 2024/12/07 09:52:32 by riel-fas          #+#    #+#             */
+/*   Updated: 2024/12/07 09:53:10 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-
-int	ft_printf(const char *, ...);
-
-
-
-
-
-#endif
+int	ft_char(char c)
+{
+	write (1, &c, 1);
+	return (1);
+}
