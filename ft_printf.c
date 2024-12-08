@@ -58,8 +58,8 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_char(str[x]);
-			y++;
+			y += ft_char(str[x]);
+			//y++;
 		}
 		x++;
 	}
