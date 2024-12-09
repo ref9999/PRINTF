@@ -6,51 +6,31 @@
 /*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:00:21 by riel-fas          #+#    #+#             */
-/*   Updated: 2024/12/07 17:35:46 by riel-fas         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:46:33 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// int	ft_nbr(int nbr)
-// {
-// 	int		x;
-
-// 	x = 0;
-// 	if (nbr < 0)
-// 	{
-// 		nbr = -nbr;
-// 		x += ft_char('-');
-// 	}
-// 	else if (nbr > 9)
-// 	{
-// 		x += ft_nbr(nbr / 10);
-// 		x += ft_char((nbr % 10) + '0');
-// 	}
-// 	else
-// 		x += ft_char(nbr + '0');
-// 	return (x);
-// }
-
-int ft_nbr(int nbr)
+int	ft_nbr(int nbr)
 {
-    int x = 0;
+	int	x;
 
-    if (nbr == -2147483648)
-    {
+	x = 0;
+	if (nbr == -2147483648)
+	{
 		x += ft_str("-2147483648");
-        return x;
-    }
-    if (nbr < 0)
-    {
-        nbr = -nbr;
-        x += ft_char('-');
-    }
-    if (nbr > 9)
-    {
-        x += ft_nbr(nbr / 10);
-    }
-
-    x += ft_char((nbr % 10) + '0');
-    return x;
+		return (x);
+	}
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		x += ft_char('-');
+	}
+	if (nbr > 9)
+	{
+		x += ft_nbr(nbr / 10);
+	}
+	x += ft_char((nbr % 10) + '0');
+	return (x);
 }

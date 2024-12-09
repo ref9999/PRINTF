@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 12:29:11 by riel-fas          #+#    #+#             */
-/*   Updated: 2024/12/07 14:54:16 by riel-fas         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:47:22 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	ft_check(char m, va_list p)
 	else if (m == 'd' || m == 'i')
 		q += ft_nbr(va_arg(p, int));
 	else if (m == 'u')
-		q += ft_nbr(va_arg(p, unsigned int));
+		q += ft_unbr(va_arg(p, unsigned int));
 	else if (m == 'p')
 		q += ft_hexa(va_arg(p, unsigned long), m);
 	else if (m == 'x')
 		q += ft_hexa(va_arg(p, unsigned int), m);
 	else if (m == 'X')
-		q += ft_hexa(va_arg(p, unsigned int),m);
+		q += ft_hexa(va_arg(p, unsigned int), m);
 	else if (m == '%')
 		q += ft_char('%');
 	else
@@ -59,7 +59,6 @@ int	ft_printf(const char *str, ...)
 		else
 		{
 			y += ft_char(str[x]);
-			//y++;
 		}
 		x++;
 	}
