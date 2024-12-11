@@ -58,7 +58,7 @@ int main(void)
 
 	//close (1);
 
-	int ret = 0;
+	// int ret = 0;
     // Test cases for ft_printf
     // ft_printf("ft_printf: Hello, World!\n");
     // ft_printf("ft_printf: Character: %c\n", 'A');
@@ -70,6 +70,12 @@ int main(void)
     // ft_printf("ft_printf: Hexadecimal (lowercase): %x\n", 0xabc);
     // ft_printf("ft_printf: Hexadecimal (uppercase): %X\n", 0xABC);
     // ft_printf("ft_printf: Percent sign: %%\n");
+	ft_printf("123\n%s\n456\n%d\n1010\n%p\nmnm\n%c\n13\n%%\nwhhgnbk\n%u\n", "bakmchalsbata", 7, (void *)0x5001122, 'Q', 1000000);
+
+	printf("\n");
+
+	printf("123\n%s\n456\n%d\n1010\n%p\nmnm\n%c\n13\n%%\nwhhgnbk\n%u\n", "bakmchalsbata", 7, (void *)0x5001122, 'Q', 1000000);
+
 
     //printf("\n");
 
@@ -87,11 +93,11 @@ int main(void)
 	// ret += 48;
 	// write(2, &ret, 1);
 	// write(2, "\n", 1);
-	ret = ft_printf(" %");
-	ret += 48;
-	write(2, "the: \n", 6);
-	write(2, &ret, 1);
-	write(2, "\n", 1);
-
-    return (0);
+	// ret = ft_printf(" %");
+	// ret += 48;
+	// write(2, "the: \n", 6);
+	// write(2, &ret, 1);
+	// write(2, "\n", 1);
+//
+    // return (0);
 }
